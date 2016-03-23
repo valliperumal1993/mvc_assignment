@@ -61,7 +61,6 @@
             @Html.DisplayFor(modelItem => spec_list[item.Speciality-1])
         </td>
         <td>
-      <!-- ViewBag.CountryName = Hospital.Equals(id);//.Where(m => m.Id == id).FirstOrDefault().CountryName;-->
             @Html.DisplayFor(modelItem => hosp_list[item.Hospital-1])
         </td>
         <td>
@@ -69,7 +68,6 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-           <!--  Html.ActionLink("Details", "Details", new { id=item.Npi }) |-->
             @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { onclick = "return popup()" })
         </td>
     </tr>

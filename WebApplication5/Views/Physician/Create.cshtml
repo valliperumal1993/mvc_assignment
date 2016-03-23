@@ -5,32 +5,6 @@
 }
 
 <h2>Create</h2>
-@{
-    //var message = "";
-    //// Specify validation requirements for different fields.
-    //Validation.RequireField("coursename", "Class name is required");
-    //Validation.RequireField("credits", "Credits is required");
-    //Validation.Add("coursename", Validator.StringLength(5));
-    //Validation.Add("credits", Validator.Integer("Credits must be an integer"));
-    //Validation.Add("credits", Validator.Range(1, 5, "Credits must be between 1 and 5"));
-    //Validation.Add("startDate", Validator.DateTime("Start date must be a date"));
-
-    //if (IsPost)
-    //{
-    //    // Before processing anything, make sure that all user input is valid.
-    //    if (Validation.IsValid())
-    //    {
-    //        var coursename = Request["coursename"];
-    //        var credits = Request["credits"].AsInt();
-    //        var startDate = Request["startDate"].AsDateTime();
-    //        message += @"For Class, you entered " + coursename;
-    //        message += @"<br/>For Credits, you entered " + credits.ToString();
-    //        message += @"<br/>For Start Date, you entered " + startDate.ToString("dd-MMM-yyyy");
-
-    //        // Further processing here
-    //    }
-    //}
-}
 
 @using (Html.BeginForm()) 
 {
@@ -66,13 +40,7 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Speciality, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Speciality)
-                @Html.ValidationMessageFor(model => model.Speciality)
-            </div>
-        </div>*@
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Speciality, new { @class = "control-label col-md-2" })
@@ -81,13 +49,6 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Hospital, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Hospital)
-                @Html.ValidationMessageFor(model => model.Hospital)
-            </div>
-        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Hospital, new { @class = "control-label col-md-2" })

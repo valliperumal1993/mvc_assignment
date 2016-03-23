@@ -2,19 +2,19 @@
 
 @{
     ViewBag.Title = "Edit";
-    List<string> speciality_list = new List<string>();
-    List<string> hospital_list = new List<string>();
+    //List<string> speciality_list = new List<string>();
+    //List<string> hospital_list = new List<string>();
 
-    foreach (var items in ViewBag.Speciality_list)
-    {
-        speciality_list.Add(items.speciality1);
+    //foreach (var items in ViewBag.Speciality_list)
+    //{
+    //    speciality_list.Add(items.speciality1);
 
-    }
-    foreach (var items in ViewBag.Hospital_list)
-    {
-        hospital_list.Add(items.HospitalName);
+    //}
+    //foreach (var items in ViewBag.Hospital_list)
+    //{
+    //    hospital_list.Add(items.HospitalName);
 
-    }
+    //}
 }
 
 <h2>Edit</h2>
@@ -57,8 +57,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Speciality, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <!--Html.EditorFor(model => model.Speciality)-->
-                @Html.DropDownListFor(model => model.Speciality, new SelectList(ViewBag.Speciality_list, "spec_id", "speciality1", new SelectListItem { Text = speciality_list[Model.Speciality - 1], Value = Model.Speciality.ToString(), Selected = true }))
+                @Html.DropDownListFor(model => model.Speciality, new SelectList(ViewBag.Speciality_list, "spec_id", "speciality1"))
                 @Html.ValidationMessageFor(model => model.Speciality)
             </div>
         </div>
@@ -66,8 +65,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Hospital, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <!--Html.EditorFor(model => model.Hospital)-->
-                @Html.DropDownListFor(model => model.Hospital, new SelectList(ViewBag.Hospital_list, "id", "HospitalName", new SelectListItem { Text = hospital_list[Model.Hospital - 1], Value = Model.Hospital.ToString(), Selected = true }))
+                @Html.DropDownListFor(model => model.Hospital, new SelectList(ViewBag.Hospital_list, "id", "HospitalName"))
 
 
                 @Html.ValidationMessageFor(model => model.Hospital)

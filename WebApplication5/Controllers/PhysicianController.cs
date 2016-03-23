@@ -28,23 +28,7 @@ namespace WebApplication5.Controllers
             return View(physicianlist);
         }
 
-        // GET: /Physician/Details/5
-    /*   public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-        
-           showphysiciandetails show = new showphysiciandetails();
-           Physician physician=  show.showdetails(id);
-           if (physician == null)
-            {
-                return HttpNotFound();
-            }
-           return View(physician);
-        }
-        */
+   
         // GET: /Physician/Create
         public ActionResult Create()
         {
@@ -54,8 +38,6 @@ namespace WebApplication5.Controllers
         }
 
         // POST: /Physician/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Npi,Name,Age,speciality,hospital,ConsultationCharges")] Physician physician)

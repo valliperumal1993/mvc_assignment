@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WebApplication5.interfaces
 {
-    interface Ideletephysician
+    interface Ispeciality
     {
-        void removephysician(int id);
+        IEnumerable<Speciality> Speciality_list();
     }
 }

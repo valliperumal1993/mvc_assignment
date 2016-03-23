@@ -167,7 +167,9 @@
     <Compile Include="DAL\Deletephysiciandb.cs" />
     <Compile Include="DAL\Editphysiciandetailsdb.cs" />
     <Compile Include="DAL\Findphysiciandb.cs" />
+    <Compile Include="DAL\Hospitalnamesdb.cs" />
     <Compile Include="DAL\Physiciandb.cs" />
+    <Compile Include="DAL\Specialitydb.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,8 +179,10 @@
     <Compile Include="interfaces\Iaddphysician.cs" />
     <Compile Include="interfaces\Ideletephysician.cs" />
     <Compile Include="interfaces\Ieditphysiciandetails.cs" />
+    <Compile Include="interfaces\Ihospitalnames.cs" />
     <Compile Include="interfaces\Ishowphysiciandetails.cs" />
     <Compile Include="interfaces\Iphysiciandetails.cs" />
+    <Compile Include="interfaces\Ispeciality.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -203,8 +207,10 @@
     <Compile Include="services\Addphysician.cs" />
     <Compile Include="services\Deletephysician.cs" />
     <Compile Include="services\Editphysician.cs" />
+    <Compile Include="services\Hospitalnames.cs" />
     <Compile Include="services\showphysiciandetails.cs" />
     <Compile Include="services\Physiciandetails.cs" />
+    <Compile Include="services\Specialitynames.cs" />
     <Compile Include="Speciality.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

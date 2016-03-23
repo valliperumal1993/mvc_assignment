@@ -13,16 +13,18 @@ namespace WebApplication5.Controllers
 {
     public class PhysicianController : Controller
     {
-       private HospitalEntities db = new HospitalEntities();
-        List<Hospital> hospital_list ;//= db.Hospitals.ToList<Hospital>();
-        List<Speciality> Speciality_list ;//= db.Specialities.ToList<Speciality>();
+      // private HospitalEntities db = new HospitalEntities();
+        Hospitalnames hospitalnames = new Hospitalnames();
+        Specialitynames specialitynames  = new Specialitynames();
+    
         // GET: /Physician/
         public ActionResult Index()
         {  
-       //   ViewBag.hs = hospital_list.Where(m => m.Id == 1).FirstOrDefault().HospitalName;
-   
+         
             Physiciandetails physiciandetails = new Physiciandetails();
             IEnumerable<Physician> physicianlist = physiciandetails.physician_list();
+            ViewBag.hospital_list = hospitalnames.Hospital_list();
+            ViewBag.speciality_list = specialitynames.Speciality_list();
             return View(physicianlist);
         }
 
@@ -46,11 +48,9 @@ namespace WebApplication5.Controllers
         // GET: /Physician/Create
         public ActionResult Create()
         {
-          hospital_list = db.Hospitals.ToList<Hospital>();
-          Speciality_list = db.Specialities.ToList<Speciality>();
-          ViewBag.hlist = hospital_list;
-          ViewBag.slist = Speciality_list;
-          return View();
+            ViewBag.hospital_list = hospitalnames.Hospital_list();
+            ViewBag.speciality_list = specialitynames.Speciality_list();
+            return View();
         }
 
         // POST: /Physician/Create
@@ -63,10 +63,6 @@ namespace WebApplication5.Controllers
         {
             if (ModelState.IsValid)
             {
-              // ViewBag.hName = hospital_list.Where(m => m.Id == hospital).FirstOrDefault().HospitalName;
-               //ViewBag.sName = Speciality_list.Where(m => m.spec_id == speciality).FirstOrDefault().speciality1;
-              //  db.Physicians.Add(ViewBag.hName);
-               //m => m.Id == ddlcountry).FirstOrDefault().CountryName;
                 Addphysician addphysician = new Addphysician();
                 addphysician.save(physician);
                 return RedirectToAction("Index");
@@ -76,7 +72,7 @@ namespace WebApplication5.Controllers
         }
 
         // GET: /Physician/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
@@ -88,6 +84,8 @@ namespace WebApplication5.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.hospital_list = hospitalnames.Hospital_list();
+            ViewBag.speciality_list = specialitynames.Speciality_list();
             return View(physician);
         }
 
@@ -95,7 +93,7 @@ namespace WebApplication5.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Npi,Name,Age,Speciality,Hospital,ConsultationCharges")] Physician physician)
+        public ActionResult Edit([Bind(Include="id,Npi,Name,Age,Speciality,Hospital,ConsultationCharges")] Physician physician)
         {
             if (ModelState.IsValid)
             {
@@ -104,25 +102,16 @@ namespace WebApplication5.Controllers
                 editphysician.Edit(physician);
                 return RedirectToAction("Index");
             }
-            return View(physician);
+         return View(physician);
         }
         
           [ActionName("Delete")]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            
             Deletephysician deletephysician = new Deletephysician();
             deletephysician.removephysician(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

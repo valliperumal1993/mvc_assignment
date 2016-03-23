@@ -14,7 +14,14 @@ namespace WebApplication5
     
     public partial class Speciality
     {
-        public int spec_id { get; set; }
+        public Speciality()
+        {
+            this.Physicians = new HashSet<Physician>();
+        }
+    
         public string speciality1 { get; set; }
+        public int spec_id { get; set; }
+    
+        public virtual ICollection<Physician> Physicians { get; set; }
     }
 }

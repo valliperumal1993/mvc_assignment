@@ -11,14 +11,29 @@ namespace WebApplication5
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Physician
     {
+        
+        public int id { get; set; }
+        [Required]
+       [RegularExpression(@"[a-zA-Z0-9]*", ErrorMessage = "NPI CONTAINS ALPHABETS AND NUMBERS ")]
         public string Npi { get; set; }
+        [Required]
+        [RegularExpression(@"[a-zA-Z\s]*", ErrorMessage = "NAME CONTAINS ONLY ALPHABET")]
         public string Name { get; set; }
-        public Nullable<decimal> Age { get; set; }
-        public string Speciality { get; set; }
-        public string Hospital { get; set; }
-        public Nullable<decimal> ConsultationCharges { get; set; }
+        [Required]
+        [Range(25, 85, ErrorMessage = "enter the age between 25 and 85")]
+        public int Age { get; set; }
+        [Required]
+        public int Speciality { get; set; }
+        [Required]
+        public int Hospital { get; set; }
+        [Required]
+        [RegularExpression(@"\d+\.?\d{1,2}", ErrorMessage = "ConsultationCharges Accept upto 2 decimal digits")]
+        public decimal ConsultationCharges { get; set; }
+    
+        public virtual Hospital Hospital1 { get; set; }
+        public virtual Speciality Speciality1 { get; set; }
     }
 }

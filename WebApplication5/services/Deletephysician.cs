@@ -17,7 +17,7 @@ namespace WebApplication5.services
         {
             deletephysiciandb = new Deletephysiciandb();
         }
-       public void removephysician(string id)
+       public void removephysician(int id)
     {
         deletephysiciandb.delete(id);
     }

@@ -16,7 +16,7 @@ namespace WebApplication5.services
         {
             findphysiciandb = new Findphysiciandb();
         }
-            public Physician showdetails(string id)
+            public Physician showdetails(int id)
         {
                 //physiciandb.findphysiciandb()
          //   Physician physician=physiciandb.findphysiciandb(id);

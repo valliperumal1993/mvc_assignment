@@ -2,6 +2,20 @@
 <script type="text/javascript" src="@Url.Content("..\\Scripts\\delete_popup.js")"></script>
 @{
     ViewBag.Title = "Index";
+    List<string> spec_list=new List<string>();
+    List<string> hosp_list = new List<string>();
+
+    foreach (var items in ViewBag.speciality_list)
+    {
+        spec_list.Add(items.speciality1);
+
+    }
+    foreach (var items in ViewBag.hospital_list)
+    {
+        hosp_list.Add(items.HospitalName);
+
+    }
+    
 }
 
 <h2>Index</h2>
@@ -11,6 +25,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Npi)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -32,26 +49,28 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Npi)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Age)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Speciality)
+            @Html.DisplayFor(modelItem => spec_list[item.Speciality-1])
         </td>
         <td>
-      <!--      ViewBag.CountryName = Hospital.Equals(id);//.Where(m => m.Id == id).FirstOrDefault().CountryName;
--->
-            @Html.DisplayFor(modelItem => item.Hospital)
+      <!-- ViewBag.CountryName = Hospital.Equals(id);//.Where(m => m.Id == id).FirstOrDefault().CountryName;-->
+            @Html.DisplayFor(modelItem => hosp_list[item.Hospital-1])
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ConsultationCharges)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Npi }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
            <!--  Html.ActionLink("Details", "Details", new { id=item.Npi }) |-->
-            @Html.ActionLink("Delete", "Delete", new { id = item.Npi }, new { onclick = "return popup()" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { onclick = "return popup()" })
         </td>
     </tr>
 }

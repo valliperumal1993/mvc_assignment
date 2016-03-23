@@ -8,6 +8,6 @@ namespace WebApplication5.interfaces
 {
     interface Ishowphysiciandetails
     {
-         Physician showdetails(string id);
+         Physician showdetails(int id);
     }
 }

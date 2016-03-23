@@ -5,14 +5,12 @@ using System.Web;
 
 namespace WebApplication5.DAL
 {
-    public class Deletephysiciandb
+    public class Hospitalnamesdb
     {
         HospitalEntities db = new HospitalEntities();
-            public void delete(int id)
+        public IEnumerable<Hospital> hospitalnamelist()
         {
-            Physician physician = db.Physicians.Find(id);
-            db.Physicians.Remove(physician);
-            db.SaveChanges();
+            return db.Hospitals.ToList<Hospital>();
         }
     }
 }

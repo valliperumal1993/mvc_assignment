@@ -59,6 +59,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })
+            
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Age)
                 @Html.ValidationMessageFor(model => model.Age)
@@ -76,7 +77,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Speciality, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Speciality, new SelectList(ViewBag.slist, "speciality1", "speciality1"))
+                @Html.DropDownListFor(model => model.Speciality, new SelectList(ViewBag.speciality_list, "spec_id", "speciality1"))
             </div>
         </div>
 
@@ -91,7 +92,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Hospital, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Hospital, new SelectList(ViewBag.hlist, "HospitalName", "HospitalName"))
+                @Html.DropDownListFor(model => model.Hospital, new SelectList(ViewBag.hospital_list, "id", "HospitalName"))
             </div>
             </div>
 

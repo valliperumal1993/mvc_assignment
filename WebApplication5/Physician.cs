@@ -15,6 +15,7 @@ namespace WebApplication5
     public partial class Physician
     {
         
+
         public int id { get; set; }
         [Required]
        [RegularExpression(@"[a-zA-Z0-9]*", ErrorMessage = "NPI CONTAINS ALPHABETS AND NUMBERS ")]
